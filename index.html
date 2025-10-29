@@ -2,377 +2,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Portfolio — Creative Developer</title>
-    <style>
-        :root{
-            --bg:#0f1724; --card:#0b1220; --muted:#9aa7bf; --accent:#6ee7b7; --accent-2:#60a5fa;
-            --glass: rgba(255,255,255,0.04);
-            --radius:12px; --gap:18px;
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-        }
-        *{box-sizing:border-box}
-        html,body{height:100%; margin:0}
-        body{
-            background:
-            radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent 8%),
-            radial-gradient(900px 500px at 90% 90%, rgba(110,231,183,0.03), transparent 6%),
-            var(--bg); color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-            line-height:1.45; padding:28px;
-            display:flex; align-items:flex-start; justify-content:center;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Clean Responsive Layout</title>
+  <style>
+    :root{
+      --bg:#0f1724; --panel:#0b1220; --muted:#9aa7bf; --accent:#6ee7b7; --accent-2:#60a5fa;
+      --glass:rgba(255,255,255,0.04); --radius:12px; --gap:18px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0}
+    body{
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent 8%),
+        radial-gradient(900px 500px at 90% 90%, rgba(110,231,183,0.03), transparent 6%),
+        var(--bg);
+      color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.45; padding:28px; display:flex; justify-content:center;
+      align-items:flex-start;
+    }
 
-        .container{
-            width:100%; max-width:1200px;
-            display:grid;
-            grid-template-columns:320px 1fr;
-            gap:var(--gap);
-            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            border-radius:16px; padding:22px; box-shadow: 0 10px 40px rgba(2,6,23,0.6);
-            backdrop-filter: blur(6px);
-            align-items:start;
-        }
+    /* Container */
+    .wrap{
+      width:100%; max-width:1200px; display:grid;
+      grid-template-columns:320px 1fr; gap:var(--gap);
+      background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px; padding:22px; box-shadow:0 10px 40px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px);
+    }
 
-        /* header spans full width of container */
-        header.site-header{
-            grid-column:1 / -1;
-            display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:0;
-            padding-bottom:6px;
-        }
-        .brand{display:flex; align-items:center; gap:12px}
-        .logo{
-            width:58px; height:58px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2));
-            display:flex; align-items:center; justify-content:center; font-weight:700; color:#032; font-size:20px; box-shadow:0 6px 18px rgba(96,165,250,0.08);
-        }
-        .brand h1{margin:0;font-size:18px;letter-spacing:0.2px}
-        nav.main-nav{display:flex; gap:12px; align-items:center}
-        nav a{color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:10px; font-size:14px}
-        nav a:hover{color:#fff; background:var(--glass)}
+    /* Header spans full width */
+    header.top{
+      grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding-bottom:6px;
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2));
+          display:flex; align-items:center; justify-content:center; color:#032; font-weight:700}
+    nav.main{display:flex; gap:10px}
+    nav a{color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:10px}
+    nav a:hover{background:var(--glass); color:#fff}
 
-        /* sidebar */
-        .sidebar{
-            display:flex; flex-direction:column; gap:14px;
-            align-self:start;
-        }
-        .profile{
-            padding:16px; border-radius:var(--radius); background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
-            display:flex; gap:12px; align-items:center; border:1px solid rgba(255,255,255,0.03);
-        }
-        .avatar{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent-2),var(--accent)); display:flex;align-items:center;justify-content:center;font-weight:700;color:#032;font-size:26px}
-        .meta small{color:var(--muted)}
+    /* Sidebar */
+    aside.sidebar{display:flex; flex-direction:column; gap:14px; align-self:start}
+    .profile{
+      padding:14px; border-radius:var(--radius); background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
+      border:1px solid rgba(255,255,255,0.03); display:flex; gap:12px; align-items:center;
+    }
+    .avatar{width:68px;height:68px;border-radius:14px;background:linear-gradient(135deg,var(--accent-2),var(--accent));
+            display:flex; align-items:center; justify-content:center; color:#032; font-weight:700}
+    .meta small{color:var(--muted); display:block}
 
-        .about, .contact-card{
-            padding:14px; border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-            border:1px solid rgba(255,255,255,0.03);
-        }
-        .about h3, .contact-card h3{margin:0 0 8px 0}
+    .card{padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+          border:1px solid rgba(255,255,255,0.02)}
+    .tags{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{background:rgba(255,255,255,0.02); padding:6px 8px; border-radius:8px; color:var(--muted); font-size:13px}
 
-        /* main content */
-        .main{
-            display:flex; flex-direction:column; gap:18px;
-        }
+    /* Main */
+    main.content{display:flex; flex-direction:column; gap:18px}
+    .hero{display:grid; grid-template-columns:1fr; gap:12px; padding:14px; border-radius:12px;
+          background:linear-gradient(180deg,#071020,#081622); border:1px solid rgba(255,255,255,0.02)}
+    .hero .intro h2{margin:0 0 8px 0; font-size:22px}
+    .hero .intro p{margin:0; color:var(--muted)}
 
-        .hero{
-            display:grid; grid-template-columns:1fr; gap:14px; align-items:start;
-            padding:18px; border-radius:var(--radius); background:linear-gradient(180deg,#071020 0%, #081622 100%); border:1px solid rgba(255,255,255,0.02)
-        }
-        .hero-head{ display:flex; justify-content:space-between; align-items:start; gap:12px; flex-wrap:wrap }
-        .intro h2{margin:0 0 8px 0; font-size:22px}
-        .intro p{margin:0 0 14px 0; color:var(--muted)}
-        .cta{display:flex; gap:10px; margin-top:8px}
-        .btn{
-            background:linear-gradient(90deg,var(--accent),var(--accent-2));
-            color:#032; padding:10px 14px; border-radius:10px; font-weight:600; border:none; cursor:pointer;
-            box-shadow:0 8px 22px rgba(6,95,70,0.12);
-            text-decoration:none;
-        }
-        .btn.ghost{
-            background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03);
-            box-shadow:none;
-        }
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .project-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
 
-        .grid{
-            display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
-        }
-        .card{
-            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            padding:14px; border-radius:10px; border:1px solid rgba(255,255,255,0.02);
-        }
-        .card h3{margin:0 0 8px 0; font-size:15px}
-        .card p{margin:0 0 12px 0; color:var(--muted); font-size:13px}
-        .tags{display:flex; gap:8px; flex-wrap:wrap}
-        .tag{background:rgba(255,255,255,0.02); color:var(--muted); padding:6px 8px; border-radius:8px;font-size:12px}
+    .project{
+      border-radius:10px; overflow:hidden; background:linear-gradient(180deg,#081426,#06111a);
+      border:1px solid rgba(255,255,255,0.02); cursor:pointer; transition:transform .16s ease, box-shadow .16s ease;
+    }
+    .project:hover{transform:translateY(-6px); box-shadow:0 12px 30px rgba(2,6,23,0.6)}
+    .thumb{height:140px; background-size:cover; background-position:center}
+    .project .body{padding:12px}
+    .project h4{margin:0 0 6px 0; font-size:15px}
+    .project small{color:var(--muted)}
 
-        .projects{
-            padding:14px; border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-            border:1px solid rgba(255,255,255,0.02);
-        }
-        .projects-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-        .project{
-            border-radius:10px; overflow:hidden; background:linear-gradient(180deg, #081426, #06111a); cursor:pointer; border:1px solid rgba(255,255,255,0.02);
-            transition:transform .18s ease, box-shadow .18s ease;
-        }
-        .project:hover{ transform:translateY(-6px); box-shadow:0 12px 30px rgba(2,6,23,0.6) }
-        .project .thumb{height:140px; background-size:cover; background-position:center}
-        .project .body{padding:12px}
-        .project h4{margin:0 0 6px 0; font-size:15px}
-        .project small{color:var(--muted)}
+    .about, .contact{padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,0.02);
+                     background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .contact form{display:grid; gap:8px}
+    .field{background:transparent; border:1px solid rgba(255,255,255,0.03); padding:10px; border-radius:10px; color:#e8f0ff}
+    .field::placeholder{color:rgba(255,255,255,0.35)}
 
-        footer{
-            grid-column:1 / -1;
-            display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:13px; margin-top:6px;
-            padding-top:8px; border-top:1px solid rgba(255,255,255,0.02);
-        }
+    footer{grid-column:1 / -1; display:flex; justify-content:space-between; color:var(--muted); font-size:13px}
 
-        /* modal */
-        .modal{
-            position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:120;
-            background:linear-gradient(180deg, rgba(2,6,23,0.7), rgba(2,6,23,0.85));
-        }
-        .modal.open{display:flex}
-        .modal-card{width:min(920px,94%); background:linear-gradient(180deg,#071427,#061021); border-radius:14px; padding:18px; border:1px solid rgba(255,255,255,0.03)}
-        .modal-grid{display:grid; grid-template-columns:1fr 320px; gap:12px}
-        .close-btn{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:10px;color:var(--muted);cursor:pointer}
+    /* Modal */
+    .modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:120;
+           background:linear-gradient(180deg, rgba(2,6,23,0.7), rgba(2,6,23,0.85))}
+    .modal.open{display:flex}
+    .modal-card{width:min(920px,94%); background:linear-gradient(180deg,#071427,#061021); border-radius:14px; padding:18px; border:1px solid rgba(255,255,255,0.03)}
+    .close-btn{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:10px;color:var(--muted);cursor:pointer}
 
-        /* responsive */
-        @media (max-width:1100px){
-            .container{max-width:980px; grid-template-columns:280px 1fr}
-            .projects-grid{grid-template-columns:repeat(2,1fr)}
-            .grid{grid-template-columns:repeat(2,1fr)}
-        }
-        @media (max-width:900px){
-            body{padding:20px}
-            .container{grid-template-columns:1fr; padding:16px}
-            header.site-header{flex-direction:column; align-items:flex-start; gap:12px}
-            .projects-grid{grid-template-columns:repeat(2,1fr)}
-            .grid{grid-template-columns:repeat(2,1fr)}
-            footer{flex-direction:column; gap:8px; align-items:flex-start}
-        }
-        @media (max-width:560px){
-            .hero{padding:14px}
-            .projects-grid{grid-template-columns:1fr}
-            .grid{grid-template-columns:1fr}
-            .brand h1{font-size:16px}
-            nav.main-nav{display:none}
-        }
-    </style>
+    /* Responsive */
+    @media (max-width:1100px){
+      .wrap{max-width:980px; grid-template-columns:300px 1fr}
+      .project-grid{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:900px){
+      .wrap{grid-template-columns:1fr; padding:16px}
+      header.top{flex-direction:column; align-items:flex-start; gap:12px}
+      .profile{flex-direction:row; align-items:center}
+      .project-grid{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      footer{flex-direction:column; gap:8px; align-items:flex-start}
+    }
+    @media (max-width:560px){
+      body{padding:18px}
+      .project-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      nav.main{display:none}
+    }
+  </style>
 </head>
 <body>
-    <div class="container" role="main">
-        <header class="site-header" aria-label="Top">
-            <div class="brand">
-                <div class="logo" aria-hidden="true">CP</div>
-                <div>
-                    <h1 style="margin:0;font-size:16px">Creative Portfolio</h1>
-                    <small style="color:var(--muted)">Product designer & Frontend developer</small>
-                </div>
-            </div>
-            <nav class="main-nav" aria-label="Main navigation">
-                <a href="#projects">Projects</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
+  <div class="wrap" role="main">
+    <header class="top" aria-label="Top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">CP</div>
+        <div>
+          <h1 style="margin:0;font-size:16px">Creative Portfolio</h1>
+          <small style="color:var(--muted)">Product designer & frontend developer</small>
+        </div>
+      </div>
 
-        <!-- Sidebar (left column on desktop) -->
-        <aside class="sidebar" aria-label="Sidebar">
-            <div class="profile" aria-label="Profile">
-                <div class="avatar">CP</div>
-                <div class="meta">
-                    <div style="display:flex; gap:6px; align-items:center">
-                        <strong>Casey Parker</strong>
-                        <small style="background:rgba(255,255,255,0.02); padding:4px 8px; border-radius:8px; color:var(--accent); font-weight:600">Open to work</small>
-                    </div>
-                    <small>Design systems, UI components, and performance-focused frontends.</small>
-                    <div style="margin-top:10px; display:flex; gap:8px">
-                        <a class="btn" href="#contact" style="padding:8px 10px; font-size:13px">Message</a>
-                        <a class="btn ghost" href="resume.pdf" style="padding:8px 10px; font-size:13px">Resume</a>
-                    </div>
-                </div>
-            </div>
+      <nav class="main" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-            <div class="about" aria-labelledby="about-title">
-                <h3 id="about-title" style="margin:0 0 8px 0">About</h3>
-                <p style="margin:0 0 8px 0; color:var(--muted)">I design interfaces and build frontends that are fast, consistent, and accessible. I turn complex problems into simple experiences.</p>
-                <strong style="font-size:13px">Tools & workflow</strong>
-                <div class="skills" style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap">
-                    <span class="tag">Figma</span><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">TypeScript</span><span class="tag">Vite</span>
-                </div>
-            </div>
+    <!-- Left column (sidebar on desktop, top on mobile) -->
+    <aside class="sidebar" aria-label="Sidebar">
+      <div class="profile" aria-label="Profile">
+        <div class="avatar" aria-hidden="true">CP</div>
+        <div class="meta">
+          <div style="display:flex; gap:6px; align-items:center">
+            <strong>Casey Parker</strong>
+            <small style="background:rgba(255,255,255,0.02); padding:4px 8px; border-radius:8px; color:var(--accent); font-weight:600">Open</small>
+          </div>
+          <small>Design systems, UI components, frontend performance</small>
+          <div style="margin-top:10px; display:flex; gap:8px">
+            <a class="btn" href="#contact" style="padding:8px 10px; font-size:13px; text-decoration:none; color:#032; background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:10px">Message</a>
+            <a class="btn" href="resume.pdf" style="padding:8px 10px; font-size:13px; text-decoration:none; color:var(--muted); border:1px solid rgba(255,255,255,0.03); border-radius:10px; background:transparent">Resume</a>
+          </div>
+        </div>
+      </div>
 
-            <div class="contact-card" aria-labelledby="quick-contact">
-                <h3 id="quick-contact" style="margin:0 0 8px 0">Quick contact</h3>
-                <div style="background:var(--glass); padding:10px; border-radius:10px; color:var(--muted); margin-bottom:8px">
-                    <strong style="display:block">email@domain.com</strong><small style="display:block">Preferred contact</small>
-                </div>
-                <div style="display:flex; gap:8px">
-                    <div style="background:var(--glass); padding:10px; border-radius:8px; color:var(--muted); flex:1; text-align:center">
-                        <strong>5+</strong><div style="font-size:12px">years</div>
-                    </div>
-                    <div style="background:var(--glass); padding:10px; border-radius:8px; color:var(--muted); flex:1; text-align:center">
-                        <strong>40+</strong><div style="font-size:12px">projects</div>
-                    </div>
-                </div>
-            </div>
-        </aside>
+      <div class="card" aria-labelledby="about-short">
+        <h3 id="about-short" style="margin:0 0 8px 0">About</h3>
+        <p style="margin:0 0 8px 0; color:var(--muted)">I design accessible, high-performance frontends and component systems.</p>
+        <div class="tags">
+          <span class="tag">Figma</span><span class="tag">React</span><span class="tag">TypeScript</span>
+          <span class="tag">Tailwind</span><span class="tag">Vite</span>
+        </div>
+      </div>
 
-        <!-- Main content (right column on desktop) -->
-        <div class="main">
-            <section class="hero" aria-labelledby="intro-title">
-                <div class="hero-head">
-                    <div class="intro" style="padding:0">
-                        <h2 id="intro-title">Hi — I'm a designer who codes</h2>
-                        <p>I build usable, accessible web experiences with a focus on performance and delightful UI. I take ideas from concept to production.</p>
-                        <div class="cta">
-                            <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire me</button>
-                            <a class="btn ghost" href="#projects">See work</a>
-                        </div>
-                    </div>
-                    <div style="min-width:180px; align-self:center; text-align:right">
-                        <div style="color:var(--muted); font-size:13px">Open for freelance & full-time roles</div>
-                        <div style="margin-top:8px">
-                            <a class="btn" href="#contact" style="padding:8px 10px; font-size:13px">Message</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="card" aria-labelledby="quick-contact">
+        <h3 id="quick-contact" style="margin:0 0 8px 0">Quick contact</h3>
+        <div style="background:var(--glass); padding:10px; border-radius:10px; color:var(--muted)">
+          <strong style="display:block">email@domain.com</strong>
+          <small>Best way to reach me</small>
+        </div>
+      </div>
+    </aside>
 
-                <div style="margin-top:12px" class="grid" aria-hidden="false">
-                    <div class="card">
-                        <h3>Availability</h3>
-                        <p style="color:var(--muted)">Open for freelance and full-time roles. Remote-first.</p>
-                        <div class="tags"><span class="tag">Frontend</span><span class="tag">Design Systems</span><span class="tag">Accessibility</span></div>
-                    </div>
-                    <div class="card">
-                        <h3>Experience</h3>
-                        <p style="color:var(--muted)">5+ years working with startups and agencies building web apps and marketing sites.</p>
-                        <div class="tags"><span class="tag">React</span><span class="tag">HTML & CSS</span><span class="tag">Vue</span></div>
-                    </div>
-                    <div class="card">
-                        <h3>Contact</h3>
-                        <p style="color:var(--muted)">Prefer email or LinkedIn for quick responses.</p>
-                        <div class="tags"><span class="tag">email@domain.com</span><span class="tag">linkedin.com/in/you</span></div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projects" class="projects" aria-labelledby="work-title">
-                <h2 id="work-title" style="margin:0 0 10px 0">Selected projects</h2>
-                <div class="projects-grid" role="list">
-                    <article class="project" data-title="Design System UI Kit" data-desc="A component-driven design system with tokens and accessible components." data-img="linear-gradient(135deg,#4f46e5,#06b6d4)" role="listitem">
-                        <div class="thumb" style="background:linear-gradient(135deg,#4f46e5,#06b6d4)"></div>
-                        <div class="body">
-                            <h4>Design System UI Kit</h4>
-                            <small>Components, tokens, documentation</small>
-                        </div>
-                    </article>
-
-                    <article class="project" data-title="Analytics Dashboard" data-desc="Interactive dashboard for visualizing user metrics and funnels with real-time updates." data-img="linear-gradient(135deg,#6366f1,#34d399)" role="listitem">
-                        <div class="thumb" style="background:linear-gradient(135deg,#6366f1,#34d399)"></div>
-                        <div class="body">
-                            <h4>Analytics Dashboard</h4>
-                            <small>React, real-time charts</small>
-                        </div>
-                    </article>
-
-                    <article class="project" data-title="Marketing Site" data-desc="High-conversion landing page with A/B testing and animation techniques for engagement." data-img="linear-gradient(135deg,#60a5fa,#34d399)" role="listitem">
-                        <div class="thumb" style="background:linear-gradient(135deg,#60a5fa,#34d399)"></div>
-                        <div class="body">
-                            <h4>Marketing Site</h4>
-                            <small>Performance-focused, SEO-friendly</small>
-                        </div>
-                    </article>
-
-                    <article class="project" data-title="E‑commerce Prototype" data-desc="Fast, accessible shopping flow with microinteractions and optimized images." data-img="linear-gradient(135deg,#fb7185,#f59e0b)" role="listitem">
-                        <div class="thumb" style="background:linear-gradient(135deg,#fb7185,#f59e0b)"></div>
-                        <div class="body">
-                            <h4>E‑commerce Prototype</h4>
-                            <small>UX, animation, checkout flow</small>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section id="contact" class="contact" aria-labelledby="contact-title" style="padding:14px; border-radius:var(--radius); background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); border:1px solid rgba(255,255,255,0.02);">
-                <h2 id="contact-title" style="margin:0 0 8px 0">Contact</h2>
-                <p style="margin:0 0 10px 0; color:var(--muted)">Interested in working together? Send a message — I'll reply within 48 hours.</p>
-                <form onsubmit="return handleContact(event)">
-                    <input class="field" name="name" placeholder="Your name" required style="width:100%; margin-bottom:8px; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:inherit" />
-                    <input class="field" type="email" name="email" placeholder="Email address" required style="width:100%; margin-bottom:8px; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:inherit" />
-                    <input class="field" name="subject" placeholder="Subject" style="width:100%; margin-bottom:8px; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:inherit" />
-                    <textarea class="field" name="message" placeholder="Message" rows="5" required style="width:100%; margin-bottom:8px; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:inherit"></textarea>
-                    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
-                        <button type="submit" class="btn">Send message</button>
-                        <small style="color:var(--muted)">Or email: <strong style="color:#fff">email@domain.com</strong></small>
-                    </div>
-                </form>
-            </section>
-
-            <footer>
-                <div>© <span id="year"></span> Creative Portfolio</div>
-                <div style="color:var(--muted)">Built with care · Accessible · Fast</div>
-            </footer>
+    <!-- Right column (main) -->
+    <main class="content">
+      <section class="hero" aria-labelledby="intro">
+        <div class="intro">
+          <h2 id="intro">Hi — I'm a designer who codes</h2>
+          <p>I build clean, usable web experiences with a focus on accessibility and performance.</p>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn" href="#contact" style="text-decoration:none; color:#032; background:linear-gradient(90deg,var(--accent),var(--accent-2)); padding:10px 14px; border-radius:10px">Hire me</a>
+            <a class="btn" href="#projects" style="background:transparent; border:1px solid rgba(255,255,255,0.03); color:var(--muted); text-decoration:none; padding:10px 14px; border-radius:10px">See work</a>
+          </div>
         </div>
 
-        <!-- Project modal -->
-        <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-            <div class="modal-card" role="document">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px">
-                    <strong id="modal-title">Project</strong>
-                    <button class="close-btn" onclick="closeModal()" aria-label="Close">Close</button>
-                </div>
-                <div class="modal-grid">
-                    <div>
-                        <p id="modal-desc" style="color:var(--muted)">Project details go here.</p>
-                        <div style="margin-top:10px">
-                            <a class="btn" href="#" id="modal-link">View live</a>
-                            <a class="btn ghost" href="#" style="margin-left:8px">Source</a>
-                        </div>
-                    </div>
-                    <div style="width:320px">
-                        <div id="modal-img" style="height:180px; border-radius:10px; background-size:cover; background-position:center"></div>
-                    </div>
-                </div>
+        <div style="display:grid; gap:12px; grid-auto-flow:row" aria-hidden="false">
+          <div class="grid" style="margin-top:12px">
+            <div class="card">
+              <h3 style="margin:0 0 8px 0">Availability</h3>
+              <p style="margin:0; color:var(--muted)">Open for freelance and full-time, remote-first.</p>
             </div>
+            <div class="card">
+              <h3 style="margin:0 0 8px 0">Experience</h3>
+              <p style="margin:0; color:var(--muted)">5+ years building web apps and marketing sites.</p>
+            </div>
+            <div class="card">
+              <h3 style="margin:0 0 8px 0">Contact</h3>
+              <p style="margin:0; color:var(--muted)">Prefer email or LinkedIn for quick replies.</p>
+            </div>
+          </div>
         </div>
+      </section>
 
+      <section id="projects" class="project-grid" aria-labelledby="work">
+        <h2 id="work" style="margin:0 0 8px 0">Selected projects</h2>
+
+        <article class="project" data-title="Design System UI Kit" data-desc="Components, tokens, docs." data-img="linear-gradient(135deg,#4f46e5,#06b6d4)">
+          <div class="thumb" style="background:linear-gradient(135deg,#4f46e5,#06b6d4)"></div>
+          <div class="body">
+            <h4>Design System UI Kit</h4>
+            <small>Components · tokens · docs</small>
+          </div>
+        </article>
+
+        <article class="project" data-title="Analytics Dashboard" data-desc="Real-time charts and insights." data-img="linear-gradient(135deg,#6366f1,#34d399)">
+          <div class="thumb" style="background:linear-gradient(135deg,#6366f1,#34d399)"></div>
+          <div class="body">
+            <h4>Analytics Dashboard</h4>
+            <small>React · real-time</small>
+          </div>
+        </article>
+
+        <article class="project" data-title="Marketing Site" data-desc="High-conversion landing pages." data-img="linear-gradient(135deg,#60a5fa,#34d399)">
+          <div class="thumb" style="background:linear-gradient(135deg,#60a5fa,#34d399)"></div>
+          <div class="body">
+            <h4>Marketing Site</h4>
+            <small>Performance · SEO</small>
+          </div>
+        </article>
+
+        <article class="project" data-title="E‑commerce Prototype" data-desc="Fast checkout with microinteractions." data-img="linear-gradient(135deg,#fb7185,#f59e0b)">
+          <div class="thumb" style="background:linear-gradient(135deg,#fb7185,#f59e0b)"></div>
+          <div class="body">
+            <h4>E‑commerce Prototype</h4>
+            <small>UX · animation</small>
+          </div>
+        </article>
+      </section>
+
+      <section id="about" class="about" aria-labelledby="about-title">
+        <h2 id="about-title" style="margin:0 0 8px 0">About</h2>
+        <p style="margin:0 0 8px 0; color:var(--muted)">I focus on component-driven UIs, accessible experiences, and fast frontends.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <span class="tag">Figma</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span>
+        </div>
+      </section>
+
+      <section id="contact" class="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title" style="margin:0 0 8px 0">Contact</h2>
+        <p style="margin:0 0 8px 0; color:var(--muted)">Send a message — I typically reply within 48 hours.</p>
+        <form onsubmit="return handleContact(event)">
+          <input class="field" name="name" placeholder="Your name" required />
+          <input class="field" type="email" name="email" placeholder="Email address" required />
+          <input class="field" name="subject" placeholder="Subject" />
+          <textarea class="field" name="message" placeholder="Message" rows="5" required></textarea>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+            <button type="submit" class="btn" style="background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#032; padding:10px 14px; border-radius:10px; border:none">Send message</button>
+            <small style="color:var(--muted)">Or email: <strong style="color:#fff">email@domain.com</strong></small>
+          </div>
+        </form>
+      </section>
+
+      <footer>
+        <div>© <span id="year"></span> Creative Portfolio</div>
+        <div style="color:var(--muted)">Built with care · Accessible · Fast</div>
+      </footer>
+    </main>
+
+    <!-- Modal (reused) -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-card" role="document">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px">
+          <strong id="modal-title">Project</strong>
+          <button class="close-btn" onclick="closeModal()" aria-label="Close">Close</button>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 320px; gap:12px">
+          <div>
+            <p id="modal-desc" style="color:var(--muted)">Project details go here.</p>
+            <div style="margin-top:10px">
+              <a class="btn" href="#" id="modal-link" style="text-decoration:none; color:#032; background:linear-gradient(90deg,var(--accent),var(--accent-2)); padding:8px 12px; border-radius:8px">View live</a>
+            </div>
+          </div>
+          <div style="width:320px">
+            <div id="modal-img" style="height:180px; border-radius:10px; background-size:cover; background-position:center"></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // small interactivity
-        document.getElementById('year').textContent = new Date().getFullYear();
+  <script>
+    // small interactivity
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-        function handleContact(e){
-            e.preventDefault();
-            const f = e.target;
-            if(!f.name.value || !f.email.value || !f.message.value){
-                alert('Please fill required fields.');
-                return false;
-            }
-            alert('Thanks — message sent (demo).');
-            f.reset();
-            return false;
-        }
+    function handleContact(e){
+      e.preventDefault();
+      const f = e.target;
+      if(!f.name.value || !f.email.value || !f.message.value){
+        alert('Please fill required fields.');
+        return false;
+      }
+      alert('Thanks — message sent (demo).');
+      f.reset();
+      return false;
+    }
 
-        // project modal
-        const projects = document.querySelectorAll('.project');
-        const modal = document.getElementById('modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDesc = document.getElementById('modal-desc');
-        const modalImg = document.getElementById('modal-img');
+    // project modal
+    const projects = document.querySelectorAll('.project');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalImg = document.getElementById('modal-img');
 
-        projects.forEach(p => p.addEventListener('click', () => {
-            modalTitle.textContent = p.dataset.title || 'Project';
-            modalDesc.textContent = p.dataset.desc || '';
-            modalImg.style.background = p.dataset.img || 'linear-gradient(135deg,#4f46e5,#06b6d4)';
-            openModal();
-        }));
+    projects.forEach(p => p.addEventListener('click', () => {
+      modalTitle.textContent = p.dataset.title || 'Project';
+      modalDesc.textContent = p.dataset.desc || '';
+      modalImg.style.background = p.dataset.img || 'linear-gradient(135deg,#4f46e5,#06b6d4)';
+      openModal();
+    }));
 
-        function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
-        function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='auto'; }
-        modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-        document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-    </script>
+    function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='auto'; }
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+  </script>
 </body>
 </html>
 // ...existing code...
